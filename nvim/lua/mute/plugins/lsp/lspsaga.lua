@@ -3,14 +3,15 @@ if not status then
     return
 end
 
+
 local config = {
     preview = {
         lines_above = 0,
         lines_below = 10,
     },
     scroll_preview = {
-        scroll_down = "<C-f>",
-        scroll_up = "<C-b>",
+        scroll_down = "<C-j>",
+        scroll_up = "<C-k>",
     },
     request_timeout = 2000,
     ui = {
@@ -48,16 +49,12 @@ local config = {
         extend_gitsigns = true,
         keys = {
             -- string | table type
-            quit = {"q", "<ESC>"},
+            quit = { "q", "<ESC>" },
             exec = "<CR>",
         },
     },
     lightbulb = {
         enable = false,
-        enable_in_insert = false,
-        sign = false,
-        sign_priority = 0,
-        virtual_text = false,
     },
     rename = {
         quit = "<ESC>",
@@ -68,13 +65,7 @@ local config = {
     },
     symbol_in_winbar = {
         enable = false,
-        separator = " ",
-        ignore_patterns={"^.*$"},
-        hide_keyword = true,
-        show_file = false,
-        folder_level = 0,
-        respect_root = true,
-        color_mode = true,
+        ignore_patterns = { "^.*$" },
     },
 }
 

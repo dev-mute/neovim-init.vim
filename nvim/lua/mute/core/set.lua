@@ -45,3 +45,5 @@ vim.opt.splitright = true
 
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
+
+vim.g.python3_host_prog = "~/.config/nvim/venv/bin/python"

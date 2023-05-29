@@ -19,7 +19,7 @@ local function remove_fugitive_tab()
 end
 
 local config = {
-    log_level = "info",
+    log_level = "error",
     auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
     auto_restore_enabled = false,
     auto_session_use_git_branch = true,

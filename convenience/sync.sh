@@ -14,4 +14,5 @@ if [ -f ~/.config/nvim/init.vim ] || [ -f ~/.config/nvim/init.lua ]; then
 fi
 
 echo '[+] Copying ~/.config/nvim/ to ../nvim/.'
+mkdir -p ../nvim/
 cp -r ~/.config/nvim/* ../nvim/
