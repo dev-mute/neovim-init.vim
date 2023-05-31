@@ -20,7 +20,7 @@ local config = {
     },
     mapping = cmp.mapping.preset.insert({
         -- `Enter` key to confirm completion
-        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         -- Navigate the suggestions with C-hjkl
         -- C-jk always scroll the suggestions in the same selection_order
@@ -55,22 +55,22 @@ local config = {
         ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp', group_index = 1 },  -- suggestions from LSP
-        { name = 'luasnip', group_index = 1 },   -- suggestions from snip
-        { name = 'buffer', group_index = 2 },    -- suggestions from current buffer
-        { name = 'path', group_index = 2 },      -- suggestions from filepath
+        { name = 'nvim_lsp', group_index = 1 }, -- suggestions from LSP
+        { name = 'luasnip',  group_index = 1 }, -- suggestions from snip
+        { name = 'buffer',   group_index = 2 }, -- suggestions from current buffer
+        { name = 'path',     group_index = 2 }, -- suggestions from filepath
     }),
     formatting = {
-        fields = {'abbr', 'menu', 'kind'},
+        fields = { 'abbr', 'menu', 'kind' },
         format = lspkind.cmp_format({
             mode = 'symbol', -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-            maxwidth = 50, -- prevent the popup from showing more 50 characters
+            maxwidth = 50,   -- prevent the popup from showing more 50 characters
             ellipsis_char = '...',
 
             -- The function below will be called before any actual modifications from lspkind
             -- so that you can provide more controls on popup customization.
             -- (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-            before = function (entry, item)
+            before = function(entry, item)
                 local menu_icon = {
                     nvim_lsp = 'λ',
                     luasnip = '⋗',
@@ -87,19 +87,19 @@ local config = {
         entries = { name = 'custom', selection_order = 'near_cursor' },
     },
     completion = {
-        completeopt = 'menu,menuone,noinsert',  -- default select the first copmletion option
+        completeopt = 'menu,menuone,noinsert', -- default select the first copmletion option
     },
     window = {
         documentation = {
-            border = {"┌", "─", "┐", "│", "┘", "─", "└", "│"},
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
         },
         completion = {
-            border = {"┌", "─", "┐", "│", "┘", "─", "└", "│"},
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
         }
-   },
-   experimental = {
-       ghost_text = true,
-   }
+    },
+    experimental = {
+        ghost_text = true,
+    }
 }
 
 cmp.setup(config)

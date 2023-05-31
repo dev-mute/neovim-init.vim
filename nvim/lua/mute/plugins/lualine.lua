@@ -11,8 +11,8 @@ local config = {
     options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -27,24 +27,26 @@ local config = {
         }
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {relative_filepath},
-        lualine_x = {'encoding', 'fileformat'},
-        lualine_y = {'filetype'},
-        lualine_z = {'location', 'progress'}
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { relative_filepath },
+        lualine_x = { 'encoding', 'fileformat' },
+        lualine_y = { 'filetype' },
+        lualine_z = { 'location', 'progress' }
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {relative_filepath},
-        lualine_x = {'encoding', 'fileformat', 'filetype', 'location', 'progress'},
+        lualine_c = { relative_filepath },
+        lualine_x = { 'encoding', 'fileformat', 'filetype', 'location', 'progress' },
         lualine_y = {},
         lualine_z = {}
     },
     tabline = {
-        lualine_a = {{
-            'tabs', mode=1, use_mode_colors=true,
+        lualine_a = { {
+            'tabs',
+            mode = 1,
+            use_mode_colors = true,
             fmt = function(name, context)
                 -- Show + if buffer is modified in tab
                 local buflist = vim.fn.tabpagebuflist(context.tabnr)
@@ -54,7 +56,7 @@ local config = {
 
                 return name .. (mod == 1 and ' +' or '')
             end
-        }},
+        } },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
@@ -77,7 +79,7 @@ local config = {
         lualine_y = {},
         lualine_z = {},
     },
-    extensions = {"quickfix", "fugitive", "nvim-tree"}
+    extensions = { "quickfix", "fugitive", "nvim-tree" }
 }
 
 lualine.setup(config)

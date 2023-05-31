@@ -23,13 +23,24 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.copyindent = true
-vim.opt.smartindent = true
+-- vim.opt.smartindent = true
+
+-- Fix python-specific indentation
+-- https://neovim.io/doc/user/indent.html#ft-python-indent
+vim.g.python_indent = {
+    disable_parentheses_indenting = false,
+    closed_paren_align_last_line = false,
+    searchpair_timeout = 150,
+    continue = 'shiftwidth()',
+    open_paren = 'shiftwidth()',
+    nested_paren = 'shiftwidth()',
+}
 
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 vim.opt.hlsearch = true
 vim.opt.smartcase = true

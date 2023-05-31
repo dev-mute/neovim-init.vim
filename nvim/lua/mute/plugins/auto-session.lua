@@ -20,10 +20,10 @@ end
 
 local config = {
     log_level = "error",
-    auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+    auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
     auto_restore_enabled = false,
     auto_session_use_git_branch = true,
-    bypass_session_save_file_types = { "alpha" },
+    bypass_session_save_file_types = { "alpha" }, -- exclude the splashscreen startup menu
     pre_save_cmds = {
         --remove_fugitive_tab,
     },
@@ -31,7 +31,7 @@ local config = {
         -- If load_on_setup is set to false, one needs to eventually call `require("auto-session").setup_session_lens()` if they want to use session-lens.
         load_on_setup = true,
         theme_conf = { border = true },
-        previewer = true,
+        -- previewer = true, -- previewing the session file?
     },
 }
 

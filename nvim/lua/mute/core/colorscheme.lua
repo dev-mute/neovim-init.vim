@@ -24,11 +24,11 @@ end
 function ColorSchemeFixTransparency()
     -- Remember to set a terminal background/terminal transparency to desktop
     PatchHighlightGroup("Normal", { bg = "none" })
-    PatchHighlightGroup("NormalNC", { link = "Normal"})
+    PatchHighlightGroup("NormalNC", { link = "Normal" })
     PatchHighlightGroup("NormalFloat", { link = "Normal" })
 
     -- Nvimtree recoloring to match transparency
-    PatchHighlightGroup("NormalSB", { link = "Normal"})
+    PatchHighlightGroup("NormalSB", { link = "Normal" })
 
     -- VertSplit recoloring to match transparency
     PatchHighlightGroup("VertSplit", { link = "lualine_c_inactive" })
@@ -36,7 +36,6 @@ function ColorSchemeFixTransparency()
     -- CMP pop-over autocomplete suggestions
     PatchHighlightGroup("Pmenu", { bg = "none" })
 end
-
 
 ColorSchemeFix()
 ColorSchemeFixTransparency()
