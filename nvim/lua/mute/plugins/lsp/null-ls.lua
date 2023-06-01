@@ -4,6 +4,7 @@ if not status_null_ls then
 end
 
 local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 -- null-ls is source of truth for installed tools
 local null_ls_config = {
@@ -12,12 +13,10 @@ local null_ls_config = {
     sources = {
         formatting.black.with({
             extra_args = { "--line-length", 100 },
-        })
+        }),
+        formatting.stylua,
+        diagnostics.selene,
     },
-    on_attach = function(client, bufnr)
-        require("lsp-zero").async_autoformat(client, bufnr)
-    end,
-
 }
 
 null_ls.setup(null_ls_config)
