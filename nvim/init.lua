@@ -1,7 +1,12 @@
 require("mute.plugins-setup")
 
+require("mute.core.set")
+require("mute.core.remap")
+require("mute.core.colorscheme")
+
 require("mute.plugins.lsp.treesitter")
 require("mute.plugins.lsp.lsp-zero")
+require("mute.plugins.lsp.null-ls")
 require("mute.plugins.lsp.nvim-cmp")
 require("mute.plugins.lsp.lspsaga")
 require("mute.plugins.lsp.lsp-signature")
@@ -15,7 +20,3 @@ require("mute.plugins.lualine")
 require("mute.plugins.nvim-tree")
 require("mute.plugins.telescope")
 require("mute.plugins.undotree")
-
-require("mute.core.set")
-require("mute.core.remap")
-require("mute.core.colorscheme")

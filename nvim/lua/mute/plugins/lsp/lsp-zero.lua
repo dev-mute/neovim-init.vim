@@ -1,4 +1,12 @@
-local lsp = require("lsp-zero").preset({})
+local lsp_status, lsp = pcall(require, "lsp-zero")
+if not lsp_status then
+    return
+end
+
+lsp = lsp.preset({
+    float_border = "single",
+    name = "recommended"
+})
 
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
@@ -12,7 +20,8 @@ lsp.format_on_save({
     },
     servers = {
         ["lua_ls"] = { "lua" },
-        ["pylsp"] = { "python" },
+        ["null-ls"] = { "python" },
+        --["pylsp"] = { "python" },
     },
 })
 
@@ -20,6 +29,12 @@ lsp.format_on_save({
 lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
 
 lspconfig.pylsp.setup({
+    capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    on_attach = function(client)
+        -- Disable formatting, see: ./null-ls.lua
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
     settings = {
         pylsp = {
             configurationSources = { "pycodestyle" }, -- "pycodestyle" or "flake8"
@@ -29,7 +44,7 @@ lspconfig.pylsp.setup({
                     hangClosing = false,
                 },
                 autopep8 = {
-                    enabled = true,
+                    enabled = false,
                 }
             },
         },
