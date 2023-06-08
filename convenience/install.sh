@@ -88,7 +88,7 @@ fi
 # Install virtualenv to containerize dependencies for vim-pydocstring (doq) and formatting feature (pynvim for black plugin)
 echo "[*] Installing Python dependencies in a virtual environment ..."
 python3 -m venv ~/.config/nvim/venv
-source ~/.config/nvim/env/bin/activate
+source ~/.config/nvim/venv/bin/activate
 pip install wheel
 pip install pynvim doq
 deactivate
@@ -103,11 +103,11 @@ fi
 
 # Enter Neovim and install plugins with packer's :PackerInstall using a temporary init.lua (to avoid warnings from uninstalled packages
 echo "[*] Running :PackerInstall within nvim ..."
-sed '/end)/q' ../nvim/lua/plugins.lua > ~/.config/nvim/init.lua
+sed '/end)/q' ../nvim/lua/mute/plugins-setup.lua > ~/.config/nvim/init.lua
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Copy init.lua from this installer into nvim's config location
 echo "[*] Copying nvim configuration -> ~/.config/nvim ..."
-cp -r ../nvim/ ~/.config/nvim/
+cp -r ../nvim/* ~/.config/nvim/
 
 echo -e "[+] Done, welcome to your new \033[1m\033[92mneovim\033[0m experience! Try it by running nvim"
