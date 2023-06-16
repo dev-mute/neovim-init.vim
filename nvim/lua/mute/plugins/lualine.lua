@@ -46,6 +46,7 @@ local config = {
         lualine_a = { {
             'tabs',
             mode = 1,
+            max_length = vim.o.columns, -- not putting anything else in the tabline
             use_mode_colors = true,
             fmt = function(name, context)
                 -- Show + if buffer is modified in tab
@@ -57,11 +58,6 @@ local config = {
                 return name .. (mod == 1 and ' +' or '')
             end
         } },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
     },
     winbar = {
         lualine_a = {},

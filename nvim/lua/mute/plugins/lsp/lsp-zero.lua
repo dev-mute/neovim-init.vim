@@ -40,6 +40,10 @@ lspconfig.pylsp.setup({
             configurationSources = { "pycodestyle" }, -- "pycodestyle" or "flake8"
             plugins = {
                 pycodestyle = {
+                    ignore = {
+                        "E203",
+                        "W503",
+                    },
                     maxLineLength = 100,
                     hangClosing = false,
                 },
