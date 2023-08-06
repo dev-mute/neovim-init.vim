@@ -11,11 +11,13 @@ function ColorSchemeFix(color)
 
     -- Update the colorscheme for personal preference
     PatchHighlightGroup("Function", { bold = true })
+    PatchHighlightGroup("DiagnosticUnnecessary", { link = "DiagnosticUnderlineError" })
 
     -- IndentBlankline recolor underline and context
     local hl_comment = vim.api.nvim_get_hl(0, { name = "Comment" })
     PatchHighlightGroup("IndentBlanklineContextChar", hl_comment)
     PatchHighlightGroup("IndentBlanklineContextStart", { sp = hl_comment.foreground })
+
 
     -- LSP Signature active parameter
     PatchHighlightGroup("LspSignatureActiveParameter", { link = "Substitute" })
@@ -39,3 +41,19 @@ end
 
 ColorSchemeFix()
 ColorSchemeFixTransparency()
+
+function ShowRootHighlightUnderCursor()
+    local function FindRoot(id, tree)
+        local transId = vim.fn.synIDtrans(id)
+        local name = vim.fn.synIDattr(id, 'name')
+        table.insert(tree, name)
+
+        if id == transId then
+            print(table.concat(tree, ' -> '))
+        else
+            FindRoot(transId, tree)
+        end
+    end
+    local id = vim.fn.synID(vim.fn.line("."), vim.fn.col("."), 0)
+    FindRoot(id, {})
+end

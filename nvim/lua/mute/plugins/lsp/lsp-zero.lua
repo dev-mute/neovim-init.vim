@@ -37,9 +37,11 @@ lspconfig.pylsp.setup({
     end,
     settings = {
         pylsp = {
-            configurationSources = { "pycodestyle" }, -- "pycodestyle" or "flake8"
+            configurationSources = { "flake8" }, -- "pycodestyle" or "flake8"
             plugins = {
-                pycodestyle = {
+                flake8 = {
+                    enabled = true,
+                    exclude = { "__init__.py" },
                     ignore = {
                         "E203",
                         "W503",
@@ -47,6 +49,24 @@ lspconfig.pylsp.setup({
                     maxLineLength = 100,
                     hangClosing = false,
                 },
+                -- pycodestyle, pyflakes, and mccabe are managed by flake8
+                -- if flake8 is enabled, these should be disabled
+                pycodestyle = {
+                    enabled = false,
+                    ignore = {
+                        "E203",
+                        "W503",
+                    },
+                    maxLineLength = 100,
+                    hangClosing = false,
+                },
+                pyflakes = {
+                    enabled = false,
+                },
+                mccabe = {
+                    enabled = false,
+                },
+
                 autopep8 = {
                     enabled = false,
                 }

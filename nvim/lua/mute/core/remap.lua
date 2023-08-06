@@ -22,7 +22,7 @@ if lsp_status then
         local opts = { buffer = bufnr, remap = false }
         lsp.default_keymaps({ buffer = bufnr })
 
-        vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+        vim.keymap.set('n', '<leader>gr', '<cmd>Telescope lsp_references<cr>', opts)
 
         -- LSP finder - Find the symbol's definition
         vim.keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts)
