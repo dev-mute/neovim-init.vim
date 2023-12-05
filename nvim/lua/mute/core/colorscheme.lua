@@ -13,12 +13,6 @@ function ColorSchemeFix(color)
     PatchHighlightGroup("Function", { bold = true })
     PatchHighlightGroup("DiagnosticUnnecessary", { link = "DiagnosticUnderlineError" })
 
-    -- IndentBlankline recolor underline and context
-    local hl_comment = vim.api.nvim_get_hl(0, { name = "Comment" })
-    PatchHighlightGroup("IndentBlanklineContextChar", hl_comment)
-    PatchHighlightGroup("IndentBlanklineContextStart", { sp = hl_comment.foreground })
-
-
     -- LSP Signature active parameter
     PatchHighlightGroup("LspSignatureActiveParameter", { link = "Substitute" })
 end

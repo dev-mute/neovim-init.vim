@@ -23,7 +23,7 @@ local header = {
         [[                                                                                       ]],
         [[                                                                                       ]],
     },
-    opts = { position = "center", hl = "Type", },
+    opts = { position = "center", hl = "Label", },
 }
 
 local dashboard = require("alpha.themes.dashboard")
